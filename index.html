@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Plaquette Onsen — Template</title>
+  <style>
+    /* A4 print page setup */
+    :root{
+      --page-width:210mm; --page-height:297mm; --bleed:3mm;
+      --primary:#006f8c; --navy:#0c2340; --accent:#f2a900; --neutral:#f7fafb;
+      --max-content:170mm;
+      --font-sans: 'Inter', Arial, sans-serif; --font-serif: 'Playfair Display', Georgia, serif;
+    }
+    @page { size: A4; margin: 12mm; }
+    html,body{height:100%;margin:0;padding:0;background:#eee;font-family:var(--font-sans);}
+    .doc{width:var(--page-width);margin:20px auto;box-shadow:0 6px 30px rgba(0,0,0,0.15);}
+    .page{width:var(--page-width);height:var(--page-height);background:white;overflow:hidden;position:relative;padding:20mm;box-sizing:border-box}
+    .page + .page{page-break-before:always}
+
+    /* Cover */
+    .cover{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;color:white;padding:0}
+    .hero{position:absolute;inset:0;background-size:cover;background-position:center;filter:saturate(1.05);}
+    .overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,35,64,0.45),rgba(0,0,0,0.25));}
+    .cover-content{position:relative;z-index:2;max-width:var(--max-content);padding:28mm}
+    .logo{font-weight:700;font-size:28px;letter-spacing:1px;background:rgba(255,255,255,0.06);padding:10px 14px;border-radius:8px}
+    h1{font-family:var(--font-serif);font-size:36px;margin:10px 0}
+    p.lead{font-size:18px; margin-top:6px;opacity:0.95}
+
+    /* Standard page content */
+    .section{max-width:var(--max-content);}
+    h2{color:var(--navy);font-family:var(--font-serif);font-size:24px;margin:6px 0 12px}
+    .muted{color:#666;font-size:14px}
+    ul{padding-left:18px}
+    .card{border-radius:14px;padding:16px;background:linear-gradient(180deg,#ffffff,#fbfdff);box-shadow:0 6px 18px rgba(12,35,64,0.06);margin-bottom:12px}
+
+    /* Testimonials */
+    .testi{display:flex;gap:12px;align-items:flex-start;margin-bottom:12px}
+    .testi .meta{font-weight:700;color:var(--navy);}
+    .stat{font-weight:700;color:var(--primary)}
+
+    /* Contact footer */
+    .contact{display:flex;flex-direction:column;gap:6px}
+    .cta{display:inline-block;padding:10px 14px;border-radius:8px;background:var(--accent);color:#0b1220;text-decoration:none;font-weight:700}
+
+    /* Small screens preview in editor */
+    @media (max-width:900px){.doc{transform:scale(0.7);transform-origin:top center}}
+
+    /* Print helpers */
+    @media print{
+      body{background:white}
+      .doc{box-shadow:none;margin:0}
+      .page{box-shadow:none;margin:0;padding:12mm}
+      .page + .page{page-break-before:always}
+    }
+  </style>
+</head>
+<body>
+  <div class="doc">
+
+    <!-- PAGE: COVER -->
+    <section class="page cover">
+      <div class="hero" style="background-image: url('https://source.unsplash.com/1600x900/?swimmingpool,water');"></div>
+      <div class="overlay"></div>
+      <div class="cover-content">
+        <div class="logo">Onsen</div>
+        <h1>Votre Partenaire pour des Installations Aquatiques Durables</h1>
+        <p class="lead">Libérez tout le potentiel de votre piscine. Notre énergie, notre savoir‑faire et nos solutions innovantes pour agir durablement sur vos ressources.</p>
+      </div>
+    </section>
+
+    <!-- PAGE 1: QUI SOMMES-NOUS -->
+    <section class="page">
+      <div class="section">
+        <h2>Qui sommes‑nous ?</h2>
+        <div class="card">
+          <p><strong>Onsen : Expert Énergétique au Service des Installations Aquatiques</strong></p>
+          <p class="muted">Chez <strong>Onsen</strong>, nous mettons notre énergie, notre savoir‑faire et nos solutions innovantes au service de la gestion durable de vos ressources. Nous sommes des experts dédiés aux piscines publiques, centres aquatiques, établissements hôteliers et de balnéothérapie.</p>
+          <p class="muted">Notre mission est de vous accompagner de manière complète et personnalisée, en maîtrisant la chaîne de valeur de A à Z. Nous croyons que la performance durable de vos installations passe par une approche globale et intégrée.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 2: SOLUTIONS -->
+    <section class="page">
+      <div class="section">
+        <h2>Nos solutions innovantes</h2>
+        <div class="card">
+          <p><strong>Des Technologies de Pointe pour une Gestion Optimale</strong></p>
+          <ul>
+            <li><strong>Hippocampe® — La Plateforme Numérique Intelligente</strong><br/><span class="muted">Hippocampe® est un outil numérique qui vous permet de libérer tout le potentiel de votre piscine. Il est dédié à la gestion de l'eau, à l'efficacité énergétique, au respect de la réglementation et à la qualité de l'air de vos installations.</span></li>
+            <li style="margin-top:8px"><strong>Axone — L'Optimisation Énergétique</strong><br/><span class="muted">Grâce à Axone, nos sites équipés ont collectivement économisé près de 7 GWh chaque année.</span></li>
+            <li style="margin-top:8px"><strong>IWA — La Nouvelle Génération de Filtration</strong><br/><span class="muted">IWA représente l'avenir de la filtration, garantissant une eau de qualité supérieure.</span></li>
+            <li style="margin-top:8px"><strong>Reuse — Réutilisation des Eaux Usées Traitées (REUT)</strong><br/><span class="muted">Onsen propose des solutions pour la réutilisation des eaux usées traitées, contribuant à une gestion plus circulaire de l'eau.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 3: APPROCHE ET ENGAGEMENTS -->
+    <section class="page">
+      <div class="section">
+        <h2>Notre approche et nos engagements</h2>
+        <div class="card">
+          <p><strong>Une Maîtrise Complète pour un Accompagnement 100% sur Mesure</strong></p>
+          <p class="muted">Chez Onsen, nous maîtrisons la chaîne complète de votre projet, garantissant un accompagnement personnalisé et une solution parfaitement adaptée à vos besoins. Notre approche se décline en plusieurs étapes clés :</p>
+          <ul>
+            <li><strong>Expertise :</strong> Analyse approfondie de vos besoins et de vos installations.</li>
+            <li><strong>Conception :</strong> Élaboration de solutions sur mesure.</li>
+            <li><strong>Réalisation :</strong> Mise en œuvre des systèmes avec rigueur et qualité.</li>
+            <li><strong>Installation :</strong> Déploiement professionnel de nos équipements.</li>
+            <li><strong>Suivi et Formation :</strong> Accompagnement continu et formation de vos équipes pour une utilisation optimale.</li>
+          </ul>
+          <p class="muted">Nos engagements sont clairs : agir durablement sur vos ressources en vous offrant des résultats concrets et rapides.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 4: REALISATIONS -->
+    <section class="page">
+      <div class="section">
+        <h2>Nos réalisations concrètes</h2>
+        <div class="card">
+          <p><strong>Des témoignages clients qui parlent d'eux‑mêmes</strong></p>
+
+          <div class="testi">
+            <div>
+              <div class="meta">Géraldine Bougeard<br/><span class="muted">Directrice du stade aquatique de Vichy</span></div>
+              <div class="muted">"Depuis Mars 2012, nous récupérons les calories sur les eaux grises pour préchauffer l’eau qui alimente les bassins et stockons l’eau ainsi refroidie pour laver les filtres. Désormais en terme de consommation d’eau, nous sommes à <span class="stat">50 L/baigneur</span> contre 100 à 150 litres auparavant."</div>
+            </div>
+          </div>
+
+          <div class="testi">
+            <div>
+              <div class="meta">Olivier Dutrieux<br/><span class="muted">Directeur de l'Aqualib' à la Côte Saint André</span></div>
+              <div class="muted">"Avis général très bon, le gain en calories est de <span class="stat">230 MWh</span> en 1 an. Très bonne stabilité thermique des bassins. L'été nous sommes capables de chauffer à température, juste en échangeant avec la solution Onsen !"</div>
+            </div>
+          </div>
+
+          <div class="testi">
+            <div>
+              <div class="meta">Philippe Martin<br/><span class="muted">Responsable Technique de l’Espace Nautique du Grand Chalon</span></div>
+              <div class="muted">"Actuellement nous sommes à <span class="stat">220 MWh</span> de gain, nous devrions approcher les <span class="stat">500 MWh</span> sur l'année. Passage d'environ <span class="stat">55 L / baigneur</span> à <span class="stat">40 L / baigneur</span> et par bassin."</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 5: CONTACT -->
+    <section class="page">
+      <div class="section">
+        <h2>Contactez‑nous</h2>
+        <div class="card contact">
+          <p><strong>Prêt à libérer le potentiel de votre piscine ?</strong></p>
+          <p class="muted">Contactez‑nous pour en savoir plus sur nos solutions ou pour demander un devis. Nous vous répondrons rapidement.</p>
+          <p><strong>Onsen SAS</strong><br/>5 Rue du Canal<br/>69100 Villeurbanne</p>
+          <p><strong>Téléphone :</strong> 04 81 65 54 50</p>
+          <a class="cta" href="#">Demander un devis</a>
+
+          <p style="margin-top:12px;font-size:12px;color:#666">Remarques pour l'impression : pour une impression professionnelle, exporter en PDF via Chrome/Edge (A4, activer les graphiques d'arrière‑plan), ou reproduire la mise en page dans InDesign (bords perdus 3mm, conversion en CMJN pour l'impression).</p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</body>
+</html>
