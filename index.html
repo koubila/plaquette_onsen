@@ -3,47 +3,66 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Plaquette Onsen — Template</title>
+  <title>Plaquette Onsen — Template (Corporate)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    /* A4 print page setup */
+    /* Corporate A4 template */
     :root{
-      --page-width:210mm; --page-height:297mm; --bleed:3mm;
-      --primary:#006f8c; --navy:#0c2340; --accent:#f2a900; --neutral:#f7fafb;
-      --max-content:170mm;
-      --font-sans: 'Inter', Arial, sans-serif; --font-serif: 'Playfair Display', Georgia, serif;
+      --page-width:210mm; --page-height:297mm;
+      --navy:#0B2340; --primary:#005B96; --accent:#0077B6; --muted:#6B7280; --neutral:#F4F7FA;
+      --max-content:170mm; --font-sans: 'Inter', Arial, sans-serif; --font-serif: 'Playfair Display', Georgia, serif;
     }
     @page { size: A4; margin: 12mm; }
-    html,body{height:100%;margin:0;padding:0;background:#eee;font-family:var(--font-sans);}
-    .doc{width:var(--page-width);margin:20px auto;box-shadow:0 6px 30px rgba(0,0,0,0.15);}
-    .page{width:var(--page-width);height:var(--page-height);background:white;overflow:hidden;position:relative;padding:20mm;box-sizing:border-box}
+    html,body{height:100%;margin:0;padding:0;background:#f0f2f5;font-family:var(--font-sans);color:#10223a}
+    .doc{width:var(--page-width);margin:24px auto;box-shadow:0 8px 30px rgba(10,20,40,0.12);border-radius:6px;overflow:hidden}
+    .page{width:var(--page-width);height:var(--page-height);background:white;overflow:hidden;position:relative;padding:18mm;box-sizing:border-box}
     .page + .page{page-break-before:always}
+
+    /* Header (printed on each page) */
+    .header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo-mark{width:56px;height:56px;border-radius:8px;background:linear-gradient(135deg,var(--navy),var(--primary));display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:20px}
+    .brand h3{margin:0;font-family:var(--font-serif);font-size:18px;color:var(--navy)}
+    .header .meta{font-size:12px;color:var(--muted)}
 
     /* Cover */
     .cover{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;color:white;padding:0}
-    .hero{position:absolute;inset:0;background-size:cover;background-position:center;filter:saturate(1.05);}
-    .overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,35,64,0.45),rgba(0,0,0,0.25));}
+    .hero{position:absolute;inset:0;background-size:cover;background-position:center;filter:contrast(1.02) saturate(1.02)}
+    .overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,35,64,0.65),rgba(0,0,0,0.32));}
     .cover-content{position:relative;z-index:2;max-width:var(--max-content);padding:28mm}
-    .logo{font-weight:700;font-size:28px;letter-spacing:1px;background:rgba(255,255,255,0.06);padding:10px 14px;border-radius:8px}
-    h1{font-family:var(--font-serif);font-size:36px;margin:10px 0}
-    p.lead{font-size:18px; margin-top:6px;opacity:0.95}
+    .cover h1{font-family:var(--font-serif);font-size:38px;margin:6px 0}
+    .cover p.lead{font-size:18px;margin-top:8px;opacity:0.95;max-width:700px}
 
-    /* Standard page content */
-    .section{max-width:var(--max-content);}
-    h2{color:var(--navy);font-family:var(--font-serif);font-size:24px;margin:6px 0 12px}
-    .muted{color:#666;font-size:14px}
+    /* Content */
+    .section{max-width:var(--max-content)}
+    h2{color:var(--navy);font-family:var(--font-serif);font-size:22px;margin:6px 0 12px}
+    .muted{color:var(--muted);font-size:14px}
     ul{padding-left:18px}
-    .card{border-radius:14px;padding:16px;background:linear-gradient(180deg,#ffffff,#fbfdff);box-shadow:0 6px 18px rgba(12,35,64,0.06);margin-bottom:12px}
+    .card{border-radius:10px;padding:18px;background:linear-gradient(180deg,#ffffff,#fbfdff);box-shadow:0 6px 20px rgba(11,35,64,0.05);margin-bottom:14px}
 
-    /* Testimonials */
-    .testi{display:flex;gap:12px;align-items:flex-start;margin-bottom:12px}
-    .testi .meta{font-weight:700;color:var(--navy);}
+    /* Solutions grid */
+    .solutions{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start}
+    .solution{display:flex;gap:12px;align-items:flex-start}
+    .solution img.thumb{width:120px;height:80px;object-fit:cover;border-radius:8px;flex-shrink:0;border:1px solid #e6eef6}
+    .solution .desc{font-size:14px}
+
+    /* Testimonials and logos */
+    .testimonials{display:flex;flex-direction:column;gap:12px}
+    .testi{display:flex;gap:12px;align-items:flex-start}
+    .testi .meta{font-weight:700;color:var(--navy);font-size:14px}
     .stat{font-weight:700;color:var(--primary)}
 
-    /* Contact footer */
-    .contact{display:flex;flex-direction:column;gap:6px}
-    .cta{display:inline-block;padding:10px 14px;border-radius:8px;background:var(--accent);color:#0b1220;text-decoration:none;font-weight:700}
+    .logos{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-top:12px}
+    .logos img{width:140px;height:56px;object-fit:contain;filter:grayscale(100%);opacity:0.85;background:white;padding:8px;border-radius:6px;border:1px solid #eef6fb}
 
-    /* Small screens preview in editor */
+    /* Contact */
+    .contact{display:flex;flex-direction:column;gap:8px}
+    .cta{display:inline-block;padding:12px 16px;border-radius:8px;background:var(--accent);color:white;text-decoration:none;font-weight:700}
+
+    /* Small helper */
+    .muted-small{color:var(--muted);font-size:13px}
+
+    /* Responsive preview */
     @media (max-width:900px){.doc{transform:scale(0.7);transform-origin:top center}}
 
     /* Print helpers */
@@ -51,7 +70,7 @@
       body{background:white}
       .doc{box-shadow:none;margin:0}
       .page{box-shadow:none;margin:0;padding:12mm}
-      .page + .page{page-break-before:always}
+      .logos img{filter:none}
     }
   </style>
 </head>
@@ -60,106 +79,173 @@
 
     <!-- PAGE: COVER -->
     <section class="page cover">
-      <div class="hero" style="background-image: url('https://source.unsplash.com/1600x900/?swimmingpool,water');"></div>
+      <div class="hero" style="background-image: url('https://source.unsplash.com/1600x900/?swimming-pool,architecture');"></div>
       <div class="overlay"></div>
+      <header class="header" style="position:relative;z-index:2">
+        <div class="brand">
+          <div class="logo-mark">Ons</div>
+          <div>
+            <h3>Onsen</h3>
+            <div class="muted-small">Solutions énergétiques & gestion durable — Piscines & centres aquatiques</div>
+          </div>
+        </div>
+        <div class="meta" style="text-align:right">
+          <div>Onsen SAS — 5 Rue du Canal, 69100 Villeurbanne</div>
+          <div>Tél. 04 81 65 54 50</div>
+        </div>
+      </header>
+
       <div class="cover-content">
-        <div class="logo">Onsen</div>
         <h1>Votre Partenaire pour des Installations Aquatiques Durables</h1>
-        <p class="lead">Libérez tout le potentiel de votre piscine. Notre énergie, notre savoir‑faire et nos solutions innovantes pour agir durablement sur vos ressources.</p>
+        <p class="lead">Libérez tout le potentiel de votre piscine grâce à des solutions techniques éprouvées, des plateformes connectées et une approche d'ingénierie pensée pour réduire vos consommations énergétiques et hydriques.</p>
+        <p style="margin-top:18px"><a class="cta" href="#">Demander un devis</a></p>
       </div>
     </section>
 
     <!-- PAGE 1: QUI SOMMES-NOUS -->
     <section class="page">
+      <header class="header">
+        <div class="brand">
+          <div class="logo-mark">Ons</div>
+          <div><h3>Qui sommes‑nous ?</h3></div>
+        </div>
+        <div class="meta">Expertise, Conception, Réalisation — Accompagnement complet</div>
+      </header>
+
       <div class="section">
-        <h2>Qui sommes‑nous ?</h2>
         <div class="card">
           <p><strong>Onsen : Expert Énergétique au Service des Installations Aquatiques</strong></p>
-          <p class="muted">Chez <strong>Onsen</strong>, nous mettons notre énergie, notre savoir‑faire et nos solutions innovantes au service de la gestion durable de vos ressources. Nous sommes des experts dédiés aux piscines publiques, centres aquatiques, établissements hôteliers et de balnéothérapie.</p>
-          <p class="muted">Notre mission est de vous accompagner de manière complète et personnalisée, en maîtrisant la chaîne de valeur de A à Z. Nous croyons que la performance durable de vos installations passe par une approche globale et intégrée.</p>
+          <p class="muted">Nous accompagnons les piscines publiques, centres aquatiques, établissements hôteliers et spas pour améliorer la performance énergétique, la gestion de l'eau et la qualité d'usage. De l'audit à la maintenance, notre approche est globale et mesurable.</p>
+          <div style="margin-top:12px;display:flex;gap:12px;align-items:center">
+            <img src="https://source.unsplash.com/400x260/?engineer,team" alt="équipe technique" style="width:280px;height:180px;object-fit:cover;border-radius:8px;border:1px solid #eef6fb">
+            <div style="flex:1">
+              <p class="muted">Notre équipe regroupe ingénieurs thermiciens, techniciens de maintenance et chefs de projet dédiés aux enjeux de la filière aquatique.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- PAGE 2: SOLUTIONS -->
     <section class="page">
+      <header class="header">
+        <div class="brand"><div class="logo-mark">Ons</div><div><h3>Nos solutions</h3></div></div>
+        <div class="meta">Technologies connectées — Réduction des consommations</div>
+      </header>
+
       <div class="section">
-        <h2>Nos solutions innovantes</h2>
         <div class="card">
-          <p><strong>Des Technologies de Pointe pour une Gestion Optimale</strong></p>
-          <ul>
-            <li><strong>Hippocampe® — La Plateforme Numérique Intelligente</strong><br/><span class="muted">Hippocampe® est un outil numérique qui vous permet de libérer tout le potentiel de votre piscine. Il est dédié à la gestion de l'eau, à l'efficacité énergétique, au respect de la réglementation et à la qualité de l'air de vos installations.</span></li>
-            <li style="margin-top:8px"><strong>Axone — L'Optimisation Énergétique</strong><br/><span class="muted">Grâce à Axone, nos sites équipés ont collectivement économisé près de 7 GWh chaque année.</span></li>
-            <li style="margin-top:8px"><strong>IWA — La Nouvelle Génération de Filtration</strong><br/><span class="muted">IWA représente l'avenir de la filtration, garantissant une eau de qualité supérieure.</span></li>
-            <li style="margin-top:8px"><strong>Reuse — Réutilisation des Eaux Usées Traitées (REUT)</strong><br/><span class="muted">Onsen propose des solutions pour la réutilisation des eaux usées traitées, contribuant à une gestion plus circulaire de l'eau.</span></li>
-          </ul>
+          <p><strong>Technologies de pointe pour une gestion optimale</strong></p>
+          <div class="solutions" style="margin-top:12px">
+            <div class="solution">
+              <img class="thumb" src="https://source.unsplash.com/400x300/?dashboard,software" alt="Hippocampe">
+              <div class="desc"><strong>Hippocampe®</strong><br/><span class="muted">Plateforme numérique de supervision : suivi eau, énergie, qualité d'air et conformité réglementaire.</span></div>
+            </div>
+
+            <div class="solution">
+              <img class="thumb" src="https://source.unsplash.com/400x300/?energy,efficiency" alt="Axone">
+              <div class="desc"><strong>Axone</strong><br/><span class="muted">Système d'optimisation énergétique — près de 7 GWh économisés collectivement chaque année.</span></div>
+            </div>
+
+            <div class="solution">
+              <img class="thumb" src="https://source.unsplash.com/400x300/?filtration,water" alt="IWA">
+              <div class="desc"><strong>IWA</strong><br/><span class="muted">Filtration nouvelle génération pour une eau plus saine et une maintenance facilitée.</span></div>
+            </div>
+
+            <div class="solution">
+              <img class="thumb" src="https://source.unsplash.com/400x300/?recycle,water" alt="Reuse">
+              <div class="desc"><strong>Reuse (REUT)</strong><br/><span class="muted">Solutions de réutilisation des eaux usées traitées, pour une gestion circulaire et des économies d'eau.</span></div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- PAGE 3: APPROCHE ET ENGAGEMENTS -->
     <section class="page">
+      <header class="header">
+        <div class="brand"><div class="logo-mark">Ons</div><div><h3>Approche & engagements</h3></div></div>
+        <div class="meta">Audit — Conception — Installation — Suivi</div>
+      </header>
+
       <div class="section">
-        <h2>Notre approche et nos engagements</h2>
         <div class="card">
-          <p><strong>Une Maîtrise Complète pour un Accompagnement 100% sur Mesure</strong></p>
-          <p class="muted">Chez Onsen, nous maîtrisons la chaîne complète de votre projet, garantissant un accompagnement personnalisé et une solution parfaitement adaptée à vos besoins. Notre approche se décline en plusieurs étapes clés :</p>
-          <ul>
-            <li><strong>Expertise :</strong> Analyse approfondie de vos besoins et de vos installations.</li>
-            <li><strong>Conception :</strong> Élaboration de solutions sur mesure.</li>
-            <li><strong>Réalisation :</strong> Mise en œuvre des systèmes avec rigueur et qualité.</li>
-            <li><strong>Installation :</strong> Déploiement professionnel de nos équipements.</li>
-            <li><strong>Suivi et Formation :</strong> Accompagnement continu et formation de vos équipes pour une utilisation optimale.</li>
+          <p><strong>Une maîtrise complète pour un accompagnement sur‑mesure</strong></p>
+          <ul style="margin-top:8px">
+            <li><strong>Expertise :</strong> Audit technique détaillé et plan d'action.</li>
+            <li><strong>Conception :</strong> Solutions sur mesure et simulations d'impact.</li>
+            <li><strong>Réalisation & Installation :</strong> Pilotage chantier, mise en service et tests.</li>
+            <li><strong>Suivi & Formation :</strong> KPIs, maintenance préventive et formation des équipes.</li>
           </ul>
-          <p class="muted">Nos engagements sont clairs : agir durablement sur vos ressources en vous offrant des résultats concrets et rapides.</p>
+          <p class="muted" style="margin-top:8px">Nous mettons l'accent sur la mesurabilité des résultats : économies d'énergie, réduction des volumes d'eau, et amélioration du confort utilisateur.</p>
         </div>
       </div>
     </section>
 
     <!-- PAGE 4: REALISATIONS -->
     <section class="page">
+      <header class="header">
+        <div class="brand"><div class="logo-mark">Ons</div><div><h3>Réalisations</h3></div></div>
+        <div class="meta">Témoignages & résultats chiffrés</div>
+      </header>
+
       <div class="section">
-        <h2>Nos réalisations concrètes</h2>
         <div class="card">
           <p><strong>Des témoignages clients qui parlent d'eux‑mêmes</strong></p>
+          <div class="testimonials" style="margin-top:10px">
+            <div class="testi">
+              <div>
+                <div class="meta">Géraldine Bougeard — Directrice, Stade aquatique de Vichy</div>
+                <div class="muted">"Depuis Mars 2012, nous récupérons les calories sur les eaux grises... Désormais, consommation d'eau à <span class=\"stat\">50 L/baigneur</span> contre 100‑150 auparavant."</div>
+              </div>
+            </div>
 
-          <div class="testi">
-            <div>
-              <div class="meta">Géraldine Bougeard<br/><span class="muted">Directrice du stade aquatique de Vichy</span></div>
-              <div class="muted">"Depuis Mars 2012, nous récupérons les calories sur les eaux grises pour préchauffer l’eau qui alimente les bassins et stockons l’eau ainsi refroidie pour laver les filtres. Désormais en terme de consommation d’eau, nous sommes à <span class="stat">50 L/baigneur</span> contre 100 à 150 litres auparavant."</div>
+            <div class="testi">
+              <div>
+                <div class="meta">Olivier Dutrieux — Directeur, Aqualib'</div>
+                <div class="muted">"Gain en calories : <span class=\"stat\">230 MWh</span> en 1 an. Stabilité thermique améliorée et confort technique."</div>
+              </div>
+            </div>
+
+            <div class="testi">
+              <div>
+                <div class="meta">Philippe Martin — Responsable Technique, Grand Chalon</div>
+                <div class="muted">"Actuellement <span class=\"stat\">220 MWh</span> de gain, objectif ~<span class=\"stat\">500 MWh</span> sur l'année. Eau : <span class=\"stat\">55 L</span> → <span class=\"stat\">40 L</span> / baigneur."</div>
+              </div>
             </div>
           </div>
 
-          <div class="testi">
-            <div>
-              <div class="meta">Olivier Dutrieux<br/><span class="muted">Directeur de l'Aqualib' à la Côte Saint André</span></div>
-              <div class="muted">"Avis général très bon, le gain en calories est de <span class="stat">230 MWh</span> en 1 an. Très bonne stabilité thermique des bassins. L'été nous sommes capables de chauffer à température, juste en échangeant avec la solution Onsen !"</div>
+          <div style="margin-top:14px">
+            <div class="muted-small">Clients & partenaires</div>
+            <div class="logos" style="margin-top:8px">
+              <img src="https://via.placeholder.com/260x100?text=Ville+X" alt="client">
+              <img src="https://via.placeholder.com/260x100?text=Agglo+Y" alt="client">
+              <img src="https://via.placeholder.com/260x100?text=Resort+Z" alt="client">
+              <img src="https://via.placeholder.com/260x100?text=Laboratoire" alt="client">
             </div>
           </div>
-
-          <div class="testi">
-            <div>
-              <div class="meta">Philippe Martin<br/><span class="muted">Responsable Technique de l’Espace Nautique du Grand Chalon</span></div>
-              <div class="muted">"Actuellement nous sommes à <span class="stat">220 MWh</span> de gain, nous devrions approcher les <span class="stat">500 MWh</span> sur l'année. Passage d'environ <span class="stat">55 L / baigneur</span> à <span class="stat">40 L / baigneur</span> et par bassin."</div>
-            </div>
-          </div>
-
         </div>
       </div>
     </section>
 
     <!-- PAGE 5: CONTACT -->
     <section class="page">
+      <header class="header">
+        <div class="brand"><div class="logo-mark">Ons</div><div><h3>Contact</h3></div></div>
+        <div class="meta">Prêts à démarrer ? Parlons‑en.</div>
+      </header>
+
       <div class="section">
-        <h2>Contactez‑nous</h2>
         <div class="card contact">
           <p><strong>Prêt à libérer le potentiel de votre piscine ?</strong></p>
-          <p class="muted">Contactez‑nous pour en savoir plus sur nos solutions ou pour demander un devis. Nous vous répondrons rapidement.</p>
+          <p class="muted">Contactez‑nous pour un audit ou une demande de devis. Nous vous accompagnerons dès le diagnostic.</p>
+
           <p><strong>Onsen SAS</strong><br/>5 Rue du Canal<br/>69100 Villeurbanne</p>
           <p><strong>Téléphone :</strong> 04 81 65 54 50</p>
-          <a class="cta" href="#">Demander un devis</a>
 
-          <p style="margin-top:12px;font-size:12px;color:#666">Remarques pour l'impression : pour une impression professionnelle, exporter en PDF via Chrome/Edge (A4, activer les graphiques d'arrière‑plan), ou reproduire la mise en page dans InDesign (bords perdus 3mm, conversion en CMJN pour l'impression).</p>
+          <p style="margin-top:8px"><a class="cta" href="#">Demander un devis</a></p>
+
+          <div style="margin-top:10px;font-size:12px;color:#6b7280">Remarques pour l'impression : exportez en PDF depuis Chrome/Edge (A4, activer les graphiques d'arrière‑plan). Pour impression pro : InDesign, fond perdu 3mm, conversion CMJN.</div>
         </div>
       </div>
     </section>
